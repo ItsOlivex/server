@@ -1,0 +1,1531 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&family=Koulen&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto';
+  transition: 0.3s ease-out;
+}
+
+body {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+
+  --bg: #fff;
+  --text: #444;
+  --detail: #f7f7f7;
+  --shadow: rgba(0, 0, 0, 0.3);
+  --lightText: #c9c9c9;
+}
+
+body.dark {
+  --bg: #121212;
+  --text: #fff;
+  --detail: #242323;
+  --shadow: rgba(255, 255, 255, 0.3);
+  --lightText: #858585;
+}
+
+.lightTitle {
+  color: var(--detail);
+  text-shadow: 0px 0px 1px var(--lightText);
+  font-size: 68px;
+  font-weight: 900;
+}
+
+section {
+  position: relative;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  background: var(--detail);
+}
+
+section header {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  min-height: 70px;
+  background: var(--bg);
+  padding: 0 25px;
+}
+
+section header .start {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  gap: 20px;
+}
+
+section header .logo{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 50px;
+  height: 40px;
+  gap: 5px;
+  transition: 0.3s ease-out;
+  border-radius: 10px;
+  z-index: 100;
+}
+
+section header .logo .block-1{
+  position: absolute;
+  width: 10px;
+  height: 40px;
+  left: 0;
+  background: var(--text);
+}
+
+section header .logo .block-2{
+  position: absolute;
+  width: 20px;
+  height: 10px;
+  top: 10px;
+  background: var(--text);
+}
+
+section header .logo .block-3{
+  position: absolute;
+  width: 10px;
+  height: 40px;
+  right: 0;
+  background: var(--text);
+}
+
+
+
+section header .end {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  width: 35px;
+  height: 35px;
+}
+
+section header .end .logout {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  width: 35px;
+  height: 35px;
+  background: var(--bg);
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+section header .end .logout:hover {
+  background: var(--detail);
+}
+
+section header .end .logout .square {
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 15px;
+  height: 20px;
+  border: 2px solid var(--text);
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+section header .end .logout .square::after {
+  content: '';
+  position: absolute;
+  width: 4px;
+  height: 13px;
+  background: var(--bg);
+  right: -3px;
+  cursor: pointer;
+}
+
+section header .end .logout:hover .square::after {
+  background: var(--detail);
+  cursor: pointer;
+}
+
+section header .end .logout .square .arrow {
+  position: absolute;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 10px;
+  height: 2px;
+  background: var(--text);
+  right: -4px;
+  z-index: 10;
+  border-radius: 2px;
+  transition: 0.35s ease-out;
+  cursor: pointer;
+}
+
+section header .end .logout .square .arrow::before {
+  content: '';
+  position: absolute;
+  width: 5px;
+  height: 2px;
+  background: var(--text);
+  border-radius: 2px;
+  right: 0;
+  transform: translate(0.5px, -1.25px) rotate(45deg);
+  cursor: pointer;
+}
+
+section header .end .logout .square .arrow::after {
+  content: '';
+  position: absolute;
+  width: 5px;
+  height: 2px;
+  background: var(--text);
+  border-radius: 2px;
+  right: 0;
+  transform: translate(0.5px, 1.25px) rotate(-45deg);
+  cursor: pointer;
+}
+
+section header .end .logout:hover .square .arrow {
+  transform: translateX(3px);
+  cursor: pointer;
+}
+
+
+section header .profile {
+  position: relative;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+}
+
+section header .profile .profileToggle {
+  position: relative;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  max-width: 300px;
+  height: 45px;
+  border-radius: 10px;
+  gap: 10px;
+  cursor: pointer;
+}
+
+section header .profile .profileToggle:hover {
+  background: var(--detail);
+}
+
+section header .profile .profileToggle .left {
+  position: relative;
+  min-width: 35px;
+  height: 35px;
+}
+
+section header .profile .profileToggle .right {
+  position: relative;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+section header .profile .profileToggle .right h4 {
+  color: var(--text);
+}
+
+section header .profile .profileToggle .more {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 15px;
+  height: 15px;
+}
+
+section header .profile .profileToggle .more ion-icon {
+  position: relative;
+  font-size: 12px;
+  width: 100%;
+  height: 100%;
+  color: var(--text);
+}
+
+section header .profileMenu {
+  position: absolute;
+  display: none;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 300px;
+  height: 400px;
+  top: 57.5px;
+  left: 0;
+  z-index: 100;
+  background: var(--bg);
+  border-radius: 10px;
+  box-shadow: 0px 0px 20px var(--shadow);
+}
+
+section header .profileMenu.active {
+  display: flex;
+}
+
+section header .profileMenu .enableDark{
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 15px;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 50px;
+  border-top: 2px solid var(--detail);
+}
+
+section header .profileMenu .enableDark h4{
+  color: var(--text);
+}
+
+section header .profileMenu .enableDark label {
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+section header .profileMenu .enableDark label input {
+  display: none;
+}
+
+section header .profileMenu .enableDark label .check {
+  position: relative;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 35px;
+  height: 20px;
+  border: 3px solid var(--text);
+  border-radius: 10px;
+}
+
+section header .profileMenu .enableDark label .check .ball{
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background: var(--text);
+  border-radius: 50%;
+  left: 2px;
+}
+
+section header .profileMenu .enableDark label input:checked ~ .check .ball {
+  left: 15px;
+}
+
+
+section .menuApp {
+  position: absolute;
+  left: 0;
+  width: 300px;
+  height: 100%;
+  background: var(--bg);
+  box-shadow: 5px 5px 50px rgba(0, 0, 0, 0.1);
+  z-index: 20;
+  transform: translateX(-100%);
+  transition: 0.5s ease-in-out;
+}
+
+section .menuApp.active {
+  transform: none;
+}
+
+
+
+
+
+section .container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  gap: 10px;
+  padding: 10px;
+}
+
+
+
+
+
+
+section .container .menu {
+  position: relative;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: row;
+  min-width: 22%;
+  height: 100%;
+  background: var(--bg);
+  border-radius: 10px;
+}
+
+section .container .menu .left {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-width: 70px;
+  height: 100%;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border-right: 2px solid var(--detail);
+}
+
+section .container .menu .left ul {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  gap: 10px;
+  margin-top: 12.5px
+}
+
+section .container .menu .left ul li {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 45px;
+  height: 45px;
+  cursor: pointer;
+  transition: 0.3s ease-out;
+  border-radius: 10px;
+}
+
+section .container .menu .left ul li:hover {
+  background: var(--detail);
+}
+
+section .container .menu .left ul li.active {
+  background: #a2c8fa;
+}
+
+section .container .menu .left ul li i {
+  color: var(--text);
+  font-size: 20px;
+}
+
+section .container .menu .left ul li.active i {
+  color: #122d52
+}
+
+section .container .menu .left ul li ion-icon {
+  font-size: 25px;
+  color: var(--text);
+}
+
+section .container .menu .left ul li.active ion-icon {
+  color: #122d52
+}
+
+
+section .container .menu .right {
+  position: relative;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+section .container .menu .right .nav {
+  position: absolute;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  border-bottom-right-radius: 10px;
+  border-top-right-radius: 10px;
+  z-index: 0;
+  background: var(--bg);
+  overflow: hidden;
+}
+
+section .container .menu .right .nav .top {
+  position: relative;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  min-height: 70px;
+  max-height: 70px;
+  padding: 0 10px;
+}
+
+section .container .menu .right .nav .top h1 {
+  color: var(--text);
+  font-size: 26px;
+  font-weight: 100;
+  opacity: 0;
+  transform: translateX(10px);
+  transition: none;
+}
+section .container .menu .right .nav.active .top h1 {
+  opacity: 1;
+  transform: none;
+  transition: 0.3s ease-out;
+}
+
+section .container .menu .right .nav .bottom {
+  position: relative;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transform: translateX(10px);
+}
+
+section .container .menu .right .nav.active .bottom {
+  transform: none;
+  opacity: 1;
+  transition: 0.3s ease-out;
+}
+
+section .container .menu .right .accounts .bottom .search,
+section .container .menu .right .files .bottom .search,
+section .container .content .subcontent .top .search{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  width: 100%;
+  min-height: 70px;
+  padding: 10px 20px;
+}
+
+section .container .content .subcontent .top .search {
+  width: 250px;
+}
+
+section .container .menu .right .accounts .bottom .search .container,
+section .container .menu .right .files .bottom .search .container,
+section .container .content .subcontent .top .search .container{
+  position: relative;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: row;
+  width: 100%;
+  height: 100%;
+  background: var(--detail);
+  border-radius: 10px;
+  border: 2px solid transparent;
+  transition: 0.2s ease-out;
+}
+
+section .container .menu .right .accounts .bottom .search .container.active,
+section .container .menu .right .files .bottom .search .container.active,
+section .container .content .subcontent .top .search .container.active {
+  border: 2px solid var(--text);
+}
+
+section .container .menu .right .accounts .bottom .search .container .icon,
+section .container .menu .right .files .bottom .search .container .icon,
+section .container .content .subcontent .top .search .container .icon {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 20%;
+  height: 100%;
+}
+
+section .container .menu .right .accounts .bottom .search .container .icon ion-icon,
+section .container .menu .right .files .bottom .search .container .icon ion-icon,
+section .container .content .subcontent .top .search .container .icon ion-icon {
+  font-size: 20px;
+  color: var(--text);
+}
+
+section .container .menu .right .accounts .bottom .search .container .input,
+section .container .menu .right .files .bottom .search .container .input,
+section .container .content .subcontent .top .search .container .input {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  height: 100%;
+}
+
+section .container .menu .right .accounts .bottom .search .container .input input,
+section .container .menu .right .files .bottom .search .container .input input,
+section .container .content .subcontent .top .search .container .input input {
+  position: relative;
+  width: 100%;
+  height: 35px;
+  border: none;
+  outline: none;
+  background: var(--detail);
+  color: var(--text);
+  font-size: 16px;
+}
+
+section .container .menu .right .files .bottom .filesNav {
+  position: relative;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  overflow-y: scroll;
+}
+
+section .container .menu .right .files .bottom .filesNav .folderManager{
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 40px;
+  border-top: 1px solid var(--detail);
+  border-bottom: 1px solid var(--detail);
+  padding: 0 20px;
+}
+
+section .container .menu .right .files .bottom .filesNav .folderManager .title {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+section .container .menu .right .files .bottom .filesNav .folderManager .title h5 {
+  color: var(--text);
+  font-size: 18px;
+}
+
+section .container .menu .right .files .bottom .filesNav .folderManager .option {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+section .container .menu .right .files .bottom .filesNav .folderManager .option .create,
+section .container .menu .right .files .bottom .filesNav .folderManager .option .upload {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+section .container .menu .right .files .bottom .filesNav .folderManager .option .create:hover,
+section .container .menu .right .files .bottom .filesNav .folderManager .option .upload:hover {
+  background: var(--detail)
+}
+
+section .container .menu .right .files .bottom .filesNav .folderManager .option .create ion-icon#folder,
+section .container .menu .right .files .bottom .filesNav .folderManager .option .upload ion-icon#folder{
+  font-size: 22px;
+  color: var(--text);
+}
+
+section .container .menu .right .files .bottom .filesNav .folderManager .option .create ion-icon#add {
+  position: absolute;
+  color: var(--text);
+  font-size: 12px;
+  margin-top: 4px
+}
+
+section .container .menu .right .files .bottom .filesNav .folderManager .option .upload ion-icon#upload{
+  position: absolute;
+  color: var(--text);
+  font-size: 10px;
+  margin-top: 5px
+}
+
+
+section .container .menu .right .files .bottom .filesNav .filesItem{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 70px;
+  padding: 10px;
+}
+
+section .container .menu .right .files .bottom .filesNav .filesItem .infos {
+  position: relative;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background: var(--bg);
+  border-radius: 10px;
+  gap: 10px;
+  padding: 0px 10px;
+  cursor: pointer;
+}
+
+section .container .menu .right .files .bottom .filesNav .filesItem .infos:hover {
+  background: var(--detail);
+}
+
+section .container .menu .right .files .bottom .filesNav .filesItem .infos.active {
+  background: var(--detail);
+}
+
+section .container .menu .right .files .bottom .filesNav .filesItem .infos .icon{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 40px;
+  max-width: 40px;
+  height: 40px;
+  border-radius: 10px;
+}
+
+section .container .menu .right .files .bottom .filesNav .filesItem .infos .icon ion-icon{
+  font-size: 24px;
+  color: var(--text);
+}
+
+section .container .menu .right .files .bottom .filesNav .filesItem .infos .info {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 40px;
+}
+
+section .container .menu .right .files .bottom .filesNav .filesItem .infos .info h1 {
+  color: var(--text);
+  font-size: 20px;
+}
+
+section .container .menu .right .files .bottom .filesNav .filesItem .infos .option {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 40px;
+  max-width: 40px;
+  height: 40px;
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+section .container .menu .right .files .bottom .filesNav .filesItem .infos .option:hover {
+  background: var(--bg);
+}
+
+section .container .menu .right .files .bottom .filesNav .filesItem .infos .option ion-icon {
+  position: relative;
+  font-size: 24px;
+  color: var(--text);
+}
+
+section .container .menu .right .files .bottom .filesNav .filesItem .infos .folderAction {
+  position: absolute;
+  display: none;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+  width: 90px;
+  background: var(--bg);
+  top: 100%;
+  right: 0;
+  z-index: 100;
+  box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  overflow: hidden;
+  padding: 3px
+}
+
+section .container .menu .right .files .bottom .filesNav .filesItem .infos .folderAction.active {
+  display: flex;
+}
+
+section .container .menu .right .files .bottom .filesNav .filesItem .infos .folderAction .itmeFolderAction{
+  position: relative;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  height: 40px;
+  padding: 0 10px;
+  cursor: pointer;
+  background: var(--bg);
+}
+
+section .container .menu .right .files .bottom .filesNav .filesItem .infos .folderAction .itmeFolderAction:hover{
+  background: var(--detail);
+}
+
+section .container .menu .right .files .bottom .filesNav .filesItem .infos .folderAction .itmeFolderAction h5 {
+  color: var(--text);
+}
+
+section .container .menu .right .files .bottom .filesNav .filesItem .infos .folderAction .itmeFolderAction.delete{
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+section .container .menu .right .files .bottom .filesNav .filesItem .infos .folderAction .itmeFolderAction.delete h5 {
+  color: #f73636;
+}
+
+section .container .menu .right .files .bottom .filesNav .filesItem .infos .folderAction .itmeFolderAction.delete:hover{
+  background: #f73636;
+}
+
+section .container .menu .right .files .bottom .filesNav .filesItem .infos .folderAction .itmeFolderAction:nth-child(1) {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+section .container .menu .right .files .bottom .filesNav .filesItem .infos .folderAction .itmeFolderAction.delete:hover h5 {
+  color: #fff;
+}
+
+
+section .container .menu .right .files .bottom .filesNav .filesItem.addFolder {
+  display: none;
+}
+
+section .container .menu .right .files .bottom .filesNav .filesItem.addFolder.active {
+  display: flex;
+}
+
+section .container .menu .right .files .bottom .filesNav .filesItem .infos .info form {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+section .container .menu .right .files .bottom .filesNav .filesItem .infos .info form .folderName {
+  height: 30px;
+  color: var(--text);
+  border: none;
+  height: none;
+  padding: 0px 5px;
+  font-size: 15px;
+  outline-color: var(--text);
+}
+
+section .container .menu .right .files .bottom .filesNav .filesItem .infos .info form input[type="submit"] {
+  display: none;
+}
+
+
+
+
+section .container .menu .right .accounts .bottom .accountList {
+  position: relative;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+  width: 100%;
+  height: 50%;
+  overflow-y: scroll;
+  border-bottom: 2px solid var(--detail);
+}
+
+section .container .menu .right .accounts .bottom .accountList .account {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 70px;
+  padding: 5px 10px;
+}
+
+section .container .menu .right .accounts .bottom .accountList .account .infos {
+  position: relative;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: row;
+  width: 100%;
+  height: 100%;
+  background: var(--bg);
+  transition: 0.2s ease-out;
+  border-radius: 10px;
+  gap: 5px;
+  padding: 10px;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+section .container .menu .right .accounts .bottom .accountList .account .infos:hover,
+section .container .menu .right .accounts .bottom .accountList .account .infos.active {
+  background: var(--detail);
+}
+
+section .container .menu .right .accounts .bottom .accountList .account .infos .img{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 40px;
+  height: 40px;
+  border-radius: 10px;
+}
+
+section .container .menu .right .accounts .bottom .accountList .account .infos .info {
+  position: relative;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+}
+
+section .container .menu .right .accounts .bottom .accountList .account .infos .info .subinfo {
+  position: relative;
+  display:flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+}
+
+section .container .menu .right .accounts .bottom .accountList .account .infos .info .subinfo h4 {
+  color: var(--text);
+}
+
+section .container .menu .right .accounts .bottom .accountList .account .infos .info .subinfo h5 {
+  color: var(--text);
+}
+
+
+
+section .container .menu .right .accounts .bottom .addAccount {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  min-height: 140px;
+  padding: 5px 10px;
+}
+
+section .container .menu .right .accounts .bottom .addAccount .add,
+section .container .menu .right .accounts .bottom .addAccount .remove {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  width: 100%;
+  height: 100%;
+  background: var(--bg);
+  border-radius: 10px;
+  transition: 0.2s ease-out;
+  cursor: pointer;
+}
+
+section .container .menu .right .accounts .bottom .addAccount .add:hover,
+section .container .menu .right .accounts .bottom .addAccount .remove:hover {
+  background: var(--detail);
+}
+
+section .container .menu .right .accounts .bottom .addAccount .add .icon {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+section .container .menu .right .accounts .bottom .addAccount .add .icon ion-icon {
+  font-size: 20px;
+  color: var(--text);
+}
+
+section .container .menu .right .accounts .bottom .addAccount .add .text,
+section .container .menu .right .accounts .bottom .addAccount .remove .text {
+  font-size: 16px;
+  color: var(--text);
+}
+
+
+
+
+section .container .menu .right .nav.active {
+  z-index: 5;
+}
+
+
+
+
+
+section .container .content {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background: var(--bg);
+  border-radius: 10px;
+}
+
+section .container .content .subcontent {
+  position: absolute;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  background: var(--bg);
+  padding: 0 20px;
+  border-radius: 10px;
+}
+
+section .container .content .subcontent.active {
+  z-index: 10;
+}
+
+section .container .content .subcontent .top {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  width: 100%;
+  min-height: 70px;
+  border-bottom: 2px solid var(--detail);
+}
+
+section .container .content .subcontent {
+  overflow: hidden;
+}
+
+section .container .content .subcontent .top h1 {
+  font-size: 27px;
+  color: var(--text);
+}
+
+section .container .content .subcontent .bottom {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  padding: 2.5vw;
+}
+
+section .container .content .subcontent.fileManager .bottom .fileContainer {
+  position: absolute;
+  display: flex;
+  justify-content: flex-start;
+  align-content: flex-start;
+  flex-direction: row;
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  gap: 20px;
+}
+
+section .container .content .subcontent.fileManager .bottom .folderNotSelected {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+section .container .content .subcontent.fileManager .bottom .fileManagerSelection {
+  z-index: 5;
+  background: var(--bg);
+}
+
+section .container .content .subcontent.fileManager .bottom .fileManagerSelection.active {
+  z-index: 10;
+}
+
+section .container .content .subcontent.fileManager .bottom .fileContainer .fileManagerContainer {
+  position: absolute;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  min-width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  padding: 20px 0;
+}
+
+section .container .content .subcontent.fileManager .bottom .fileContainer .fileManagerContainer.active {
+  transform: translateX(calc(-100% / 3));
+}
+
+section .container .content .subcontent.fileManager .bottom .fileContainer .fileManagerFolder {
+  position: relative;
+  display: flex;
+  justify-content: flex-start;
+  align-content: flex-start;
+  flex-direction: row;
+  flex-wrap: wrap;
+  max-width: 100%;
+  width: 100%;
+  min-width: calc(100% / 3);
+  height: 100%;
+  overflow-y: scroll;
+  gap: 20px;
+  border-right: 1px solid var(--detail);
+  padding: 20px;
+}
+
+section .container .content .subcontent.fileManager .bottom .fileContainer .fileManagerFolder .fileItem {
+  position: relative;
+  display: inline-grid;
+  border: 1px solid var(--detail);
+  width: 100px;
+  height: 120px;
+  border-radius: 10px;
+  padding: 0 10px;
+  cursor: pointer;
+}
+
+section .container .content .subcontent.fileManager .bottom .fileContainer .fileManagerFolder .fileItem.createFile.active {
+  display: none;
+}
+
+section .container .content .subcontent.fileManager .bottom .fileContainer .fileManagerFolder .fileItem.createFolder.active {
+  display: none;
+}
+
+section .container .content .subcontent.fileManager .bottom .fileContainer .fileManagerFolder .fileItem.createFile.animate {
+  border: 1px solid #f73636;
+  animation: folderError 0.5s ease-out;
+}
+
+section .container .content .subcontent.fileManager .bottom .fileContainer .fileManagerFolder .fileItem.createFolder.animate {
+  border: 1px solid #f73636;
+  animation: folderError 0.5s ease-out;
+}
+
+@keyframes folderError {
+  0%{
+    transform: none;
+  } 20% {
+    transform: translateX(-5px);
+  }40% {
+    transform: translateX(5px);
+  }60% {
+    transform: translateX(-5px);
+  }80% {
+    transform: translateX(5px);
+  }
+}
+
+section .container .content .subcontent.fileManager .bottom .fileContainer .fileManagerFolder .fileItem.createFile .fileName input, 
+section .container .content .subcontent.fileManager .bottom .fileContainer .fileManagerFolder .fileItem.createFolder .fileName input{
+  height: 30px;
+  width: 80px;
+  color: var(--text);
+  border: none;
+  padding: 0px 5px;
+  font-size: 15px;
+  outline-color: var(--text);
+}
+
+section .container .content .subcontent.fileManager .bottom .fileContainer .fileManagerFolder .fileItem.createFile.animate .fileName input, 
+section .container .content .subcontent.fileManager .bottom .fileContainer .fileManagerFolder .fileItem.createFolder.animate .fileName input{
+  outline-color: #f73636;
+}
+
+section .container .content .subcontent.fileManager .bottom .fileContainer .fileManagerFolder .fileItem:hover {
+  background: var(--detail);
+}
+
+section .container .content .subcontent.fileManager .bottom .fileContainer .fileManagerFolder .fileItem .fileIcon {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 80px;
+  max-height: 80px;
+}
+
+section .container .content .subcontent.fileManager .bottom .fileContainer .fileManagerFolder .fileItem .fileIcon ion-icon {
+  font-size: 50px;
+  color: var(--text);
+}
+
+section .container .content .subcontent.fileManager .bottom .fileContainer .fileManagerFolder .fileItem .fileIcon ion-icon#newFile {
+  position: relative;
+  font-size: 50px;
+  color: var(--text);
+}
+
+section .container .content .subcontent.fileManager .bottom .fileContainer .fileManagerFolder .fileItem .fileIcon ion-icon#addNew {
+  position: absolute;
+  margin-top: 15px;
+  font-size: 24px;
+  color: var(--text);
+} 
+
+section .container .content .subcontent.fileManager .bottom .fileContainer .fileManagerFolder .fileItem.createFolder .fileIcon ion-icon#addNew {
+  position: absolute;
+  margin-top: 10px;
+  font-size: 24px;
+  color: var(--text);
+} 
+
+
+section .container .content .subcontent.fileManager .bottom .fileContainer .fileManagerFolder .fileItem .fileName {
+  position: relative;
+  display: flex;
+  justify-items: space-between;
+  align-items: center;
+  width: 100%;
+  height: 40px;
+  border-top: 1px solid var(--detail);
+}
+
+section .container .content .subcontent.fileManager .bottom .fileContainer .fileManagerFolder .fileItem .fileName h4 {
+  position: relative;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  overflow: hidden;
+  width: 54px;
+  height: 100%;
+  color: var(--text);
+}
+
+section .container .content .subcontent.fileManager .bottom .fileContainer .fileManagerFolder .fileItem.createFile .fileName input[type="submit"]{
+  display: none;
+}
+
+section .container .content .subcontent.fileManager .bottom .fileContainer .fileManagerFolder .fileItem.createFolder .fileName input[type="submit"]{
+  display: none;
+}
+
+section .container .content .subcontent.fileManager .bottom .fileContainer .fileManagerFolder .fileItem .fileName .fileOption {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 30px;
+  height: 30px;
+  border-radius: 10px;
+}
+
+section .container .content .subcontent.fileManager .bottom .fileContainer .fileManagerFolder .fileItem .fileName .fileOption:hover {
+  background: var(--bg);
+}
+
+section .container .content .subcontent.fileManager .bottom .fileContainer .fileManagerFolder .fileItem .fileName .fileOption ion-icon {
+  color: var(--text);
+  font-size: 16px;
+}
+
+
+section .container .content .subcontent .bottom .content {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+section .container .content .subcontent .bottom .content {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  background: var(--bg);
+  z-index: 5;
+}
+
+section .container .content .subcontent .bottom .content .acInfo {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 5;
+}
+
+section .container .content .subcontent .bottom .content .acInfo.active {
+  z-index: 10;
+}
+
+section .container .content .subcontent .bottom .content .acInfo .content {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  gap: 10px;
+}
+
+section .container .content .subcontent .bottom .content .acInfo .content .img {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  min-height: 200px;
+  border-radius: 20px;
+  background: var(--detail);
+  overflow: hidden;
+}
+
+section .container .content .subcontent .bottom .content .acInfo .content .img img {
+  width: 100%;
+  height: 100%;
+}
+
+section .container .content .subcontent .bottom .content .acInfo .content .info {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  padding: 50px 150px;
+}
+
+section .container .content .subcontent .bottom .content .acInfo .content .info .contentInside {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+}
+
+section .container .content .subcontent .bottom .content .acInfo .content .info .contentInside .inputs {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  width: 100%;
+  height: 85%;
+}
+
+section .container .content .subcontent .bottom .content .acInfo .content .info .contentInside .saveChanges {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  width: 100%;
+  height: 15%;
+}
+
+section .container .content .subcontent .bottom .content .acInfo .content .info .contentInside .left,
+section .container .content .subcontent .bottom .content .acInfo .content .info .contentInside .right {
+  position: relative;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+}
+
+section .container .content .subcontent .bottom .content .acInfo .content .info .contentInside .left .input,
+section .container .content .subcontent .bottom .content .acInfo .content .info .contentInside .right .input {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  border: 1px solid black;
+}
+
+section .blur {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  background: rgba(255, 255, 255, 0.5);
+  display: none;
+}
+
+section .blur.active {
+  display: flex;
+}
+
+section .folderOption {
+  position: absolute;
+  display: none;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+  width: 200px;
+  height: 80px;
+  background: var(--bg);
+  box-shadow: 0px 0px 20px var(--shadow);
+  top: 300px;
+  left: 400px;
+  z-index: 100;
+  border-radius: 10px;
+  transition: none;
+  overflow: hidden;
+}
+
+section .folderOption.active {
+  display: flex;
+}
+
+section .folderOption .folderItem {
+  background: var(--bg);
+}
+
+section .folderOption .folderItem:hover {
+  background: var(--detail);
+}
+
+section .folderOption .folderContainer {
+  position: relative;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+}
+
+section .folderOption .folderItem {
+  position: relative;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  height: 40px;
+  border-bottom: 1px solid var(--detail);
+  cursor: pointer;
+}
+
+section .folderOption .folderItem .icon {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+section .folderOption .folderItem .icon ion-icon#file {
+  font-size: 24px;
+  color: var(--text);
+}
+
+section .folderOption .folderItem .icon ion-icon#add {
+  position: absolute;
+  color: var(--text);
+  font-size: 14px;
+  margin-top: 4px
+}
+
+section .folderOption .folderItem .text {
+  position: relative;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  padding: 0 10px;
+}
+
+section .folderOption .folderItem .text h4 {
+  color: var(--text);
+  font-size: 18px;
+}
+
+
+section input#menuFolder{
+  opacity: 0;
+}
+
+
+
+/* width */
+::-webkit-scrollbar {
+  width: 0px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: var(--detail);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--text);
+}

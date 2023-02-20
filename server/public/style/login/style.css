@@ -1,0 +1,312 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&family=Koulen&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto';
+}
+
+body{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    
+
+    --bg: #fff;
+    --text: #444;
+    --detail: #f7f7f7;
+}
+
+body.dark {
+    --bg: #121212;
+    --text: #fff;
+    --detail: #242323;
+}
+
+section {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background: var(--detail);
+}
+
+section .container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20%;
+    height: 50%;
+    background: var(--bg);
+    box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+}
+
+section .container #form {
+  display: none;
+}
+
+section .container .form {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+}
+
+section .container .form .top {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    height: 25%;
+}
+
+section .container .form .top .logo {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 60%;
+}
+
+section .container form .top .title {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 40%;
+}
+
+section .container form .top .title h1 {
+    color: var(--text);
+    font-size: 34px;
+}   
+
+section .container form .bottom {
+    position: relative;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    width: 100%;
+    height: 75%;
+    padding: 30px 15%;
+    gap: 20px;
+}
+
+section .container form .bottom .input {
+    position: relative;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    height: 62px;
+    overflow: hidden;
+}
+
+section .container form .bottom .input span {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    width: 100%;
+    height: 40px;
+}
+
+section .container form .bottom .input span input {
+    position: relative;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 0 5px;
+    width: 100%;
+    height: 100%;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    border-bottom: 2px solid var(--text);
+    color: var(--text);
+    caret-color: var(--text);
+}
+
+section .container form .bottom .input span h3 {
+    position: absolute;
+    color: var(--text);
+    font-size: 18px;
+    transition: 0.3s ease-out;
+    left: 0;
+}
+
+section .container form .bottom .input span input:focus ~ h3,
+section .container form .bottom .input span input:valid ~ h3 {
+    transform: translateY(-25px);
+    font-size: 14px;
+    opacity: .8;
+}
+
+section .container form .bottom .input .line {
+    position: absolute;
+    justify-self: center;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background: #a2c8fa;
+    transition: 0.3s ease-out;
+}
+
+section .container form .bottom .input span input:focus ~ .line,
+section .container form .bottom .input span input:valid ~ .line {
+    width: 100%;
+}
+
+section .container form .bottom .input.passContainer .hide {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  right: 0;
+  cursor: pointer;
+  transform: translateY(-50px);
+  transition: 0.3s ease-out;
+}
+
+section .container form .bottom .input.passContainer .hide ion-icon {
+  position: relative;
+  color: var(--text);
+  font-size: 22px;
+  font-weight: 900;
+  width: 30px;
+  height: 30px;
+}
+
+section .container form .bottom .input.passContainer .hide .cross {
+  position: absolute;
+  width: 0px;
+  height: 1.5px;
+  background: var(--text);
+  transform: rotate(-45deg);
+  transition: 0.3s ease-out;
+}
+
+section .container form .bottom .input.passContainer .hide .cross.active {
+  width: 25px;
+}
+
+section .container form .bottom .input span input:focus ~ .hide,
+section .container form .bottom .input span input:valid ~.hide {
+  transform: none;
+}
+
+
+section .container form .bottom .input.passContainer.error, 
+section .container form .bottom .input.em.error {
+  animation: error 0.5s ease-out; 
+}
+
+section .container form .bottom .input.passContainer.error .line,
+section .container form .bottom .input.em.error .line {
+  background: #f73636;
+}
+
+section .container form .bottom .input.sub input {
+    width: 100%;
+    height: 40px;
+    background: var(--detail);
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    font-size: 20px;
+    color: var(--text);
+    cursor: pointer;
+    transition: 0.1s ease-out;
+}
+
+section .container form .bottom .input.sub input:hover {
+    background: #a2c8fa;
+    color: #122d52;
+}
+
+section .container form .bottom .input.restLog label {
+  position: relative;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 40px;
+  gap: 10px;
+  cursor: pointer;
+}
+
+section .container form .bottom .input.restLog label .box {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  width: 20px;
+  height: 20px;
+  border-radius: 5px;
+  border: 2px solid #a2c8fa;
+  transition: 0.3s ease-out;
+}
+
+section .container form .bottom .input.restLog label .box ion-icon {
+  font-size: 25px;
+  width: 30px;
+  height: 30px;
+  color: var(--bg);
+}
+
+section .container form .bottom .input.restLog label .label {
+  position: relative;
+  color: var(--text);
+  font-size: 16px;
+  font-weight: 900;
+}
+
+section .container form .bottom .input.restLog label input:checked ~ .box {
+  background: #a2c8fa;
+}
+
+section .container form .bottom .input.restLog label input {
+  display: none;
+}
+
+
+@keyframes error {
+  0%{
+    transform: none;
+  } 20% {
+    transform: translateX(-10px);
+  }40% {
+    transform: translateX(10px);
+  }60% {
+    transform: translateX(-10px);
+  }80% {
+    transform: translateX(10px);
+  }
+}
+
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active{
+    -webkit-box-shadow: 0 0 0 30px white inset !important;
+}

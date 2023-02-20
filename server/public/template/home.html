@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home page</title>
+  <link rel="stylesheet" href="../style/home/style.css">
+  <link rel="stylesheet" href="../style/loading/style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.3/angular.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body ng-app="myApp" ng-controller="myCtrl" class="">
+  <div class="loadingContainer">
+    <div class="loading">
+      <span class="shape shape-1"></span>
+      <span class="shape shape-2"></span>
+      <span class="shape shape-3"></span>
+      <span class="shape shape-4"></span>
+    </div>
+  </div>
+
+  <script>
+
+    let milliseconds = 0;
+
+    let addMilliseconds = () => {
+      milliseconds += 10;
+    }
+
+    let interval = setInterval(addMilliseconds, 10);
+
+    let shapes = document.querySelectorAll(".shape");
+    let loading = document.querySelector(".loading");
+    let loadingContainer = document.querySelector(".loadingContainer");
+
+    window.onload = () => {
+      clearInterval(interval);
+      setTimeout(() => {
+        shapes.forEach((element, i) => {
+          loading.style.animation = "none";
+          element.classList.add("animate");
+        });
+      }, (1500 - milliseconds));
+      setTimeout((element) => {
+        loadingContainer.classList.add("notActive");
+      }, ((1500 - milliseconds) + 600));
+    }
+
+
+  </script>
+
+  <section>
+    <header>
+      <div class="start">
+        <div class="logo">
+          <div class="block block-1"></div>
+          <div class="block block-2"></div>
+          <div class="block block-3"></div>
+        </div>
+        <div class="profile">
+          <div class="profileToggle">
+            <div class="left">
+              <img src="" alt="">
+            </div>
+            <div class="right">
+              <h4 class="nameUser">{{ user.name }}</h4>
+            </div>
+            <div class="more">
+              <ion-icon name="chevron-down-outline"></ion-icon>
+            </div>
+          </div>
+          <div class="profileMenu">
+            <div class="enableDark">
+              <h4>Modalità scura</h4>
+              <label for="darkMode">
+                <input type="checkbox" id="darkMode">
+                <div class="check">
+                  <div class="ball"></div>
+                </div>
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="middle">
+
+      </div>
+      <div class="end">
+        <form class="logout" action="logout" method="post">
+          <label for="submitButton" class="logout">
+            <div class="square">
+              <div class="arrow">
+                <input type="submit" id="submitButton" style="display:none;">
+              </div>
+            </div>
+          </label>
+        </form>
+      </div>
+    </header>
+
+    <div class="container">
+      <div class="menu">
+        <div class="left">
+          <ul>
+            <li class="item active"><ion-icon name="folder-open-outline"></ion-icon></li>
+            <li class="item accountNav"><ion-icon name="person-outline"></ion-icon></li>
+          </ul>
+        </div>
+        <div class="right">
+          <div class="files nav active">
+            <div class="top">
+              <h1>My Files</h1>
+            </div>
+            <div class="bottom">
+              <div class="search">
+                <div class="container">
+                  <div class="icon">
+                    <ion-icon name="search-outline"></ion-icon>
+                  </div>
+                  <div class="input">
+                    <input type="text" placeholder="Search folder..." ng-model="foldersFilter" class="inputSearch">
+                  </div>
+                </div>
+              </div>
+              <div class="filesNav">
+                <div class="folderManager">
+                  <div class="title">
+                    <h5>Files</h5>
+                  </div>
+                  <div class="option">
+                    <div class="create" ng-click="createFolder()">
+                      <ion-icon name="folder-outline" id="folder"></ion-icon>
+                      <ion-icon name="add-outline" id="add"></ion-icon>
+                    </div>
+                    <div class="upload">
+                      <ion-icon name="folder-outline" id="folder"></ion-icon>
+                      <ion-icon name="arrow-up-outline" id="upload"></ion-icon>
+                    </div>
+                  </div>
+                </div>
+                <div class="filesItem" ng-repeat="folder in folders | filter: foldersFilter"
+                  ng-click="selectFolder($index)">
+                  <div class="infos">
+                    <div class="icon">
+                      <ion-icon name="folder-outline"></ion-icon>
+                    </div>
+                    <div class="info">
+                      <h1>{{ folder }}</h1>
+                    </div>
+                    <div class="option filesOption" ng-click="folderOption($index, this)">
+                      <ion-icon name="ellipsis-vertical-outline"></ion-icon>
+                    </div>
+                    <div class="folderAction">
+                      <div class="itmeFolderAction addFolder">
+                        <h5>Add folder</h5>
+                      </div>
+                      <div class="itmeFolderAction rename">
+                        <h5>Rename</h5>
+                      </div>
+                      <div class="itmeFolderAction delete" ng-click="deleteFolder($index)">
+                        <h5>Delete</h5>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="filesItem addFolder">
+                  <div class="infos">
+                    <div class="icon">
+                      <ion-icon name="add-circle-outline"></ion-icon>
+                    </div>
+                    <div class="info">
+                      <form id="folderName">
+                        <input type="text" class="folderName"
+                          onblur="document.querySelector('.filesItem.addFolder').classList.remove('active');">
+                        <input type="submit">
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="accounts nav">
+            <div class="top">
+              <h1>Accounts</h1>
+            </div>
+            <div class="bottom">
+              <div class="search">
+                <div class="container">
+                  <div class="icon">
+                    <ion-icon name="search-outline"></ion-icon>
+                  </div>
+                  <div class="input">
+                    <input type="text" placeholder="Search account..." ng-model="accountFilter" class="inputSearch">
+                  </div>
+                </div>
+              </div>
+              <div class="accountList">
+                <div class="account" ng-repeat="account in accounts | filter : accountFilter"
+                  ng-click="selectAccount($index)">
+                  <div class="infos">
+                    <div class="img">
+                      <img src="" alt="">
+                    </div>
+                    <div class="info">
+                      <div class="subinfo">
+                        <h4>{{ account["name"] + " " + account["surname"] }}</h4>
+                      </div>
+                      <div class="subinfo">
+                        <h5>{{ account["email"] }}</h5>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="addAccount">
+                <div class="add" ng-click="createAccount()">
+                  <div class="icon">
+                    <ion-icon name="add-outline"></ion-icon>
+                  </div>
+                  <div class="text">
+                    <h3>Add account</h3>
+                  </div>
+                </div>
+                <div class="remove" ng-click="removeSelection()">
+                  <div class="text">
+                    <h3>Remove selection</h3>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="content">
+        <div class="subcontent fileManager active">
+          <div class="top">
+            <h1>Files manager</h1>
+            <div class="search">
+              <div class="container">
+                <div class="icon">
+                  <ion-icon name="search-outline"></ion-icon>
+                </div>
+                <div class="input">
+                  <input type="text" placeholder="Search file..." ng-model="fileFilter" class="inputSearch">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="bottom">
+            <div class="fileManagerSelection folderNotSelected active">
+              <h1 class="lightTitle">Seleziona una cartella per visualizzare i file</h1>
+            </div>
+            <div class="fileManagerSelection fileContainer">
+              <div class="fileManagerContainer">
+                <div class="fileManagerFolder" ng-repeat="page in filesGeneral.page"
+                  ng-right-click="rightClick($event, $index)">
+                  <div class="fileItem" ng-repeat="file in filesGeneral.files[0][$index].files | filter: fileFilter"
+                    ng-click="selectFolders($parent.$index, $index)" ng-right-click="rightClick($event, $index)">
+                    <div class="fileIcon">
+                      <ion-icon name="{{ file.url }}"></ion-icon>
+                    </div>
+                    <div class="fileName">
+                      <h4>{{ file.name }}</h4>
+                    </div>
+                  </div>
+                  <div class="fileItem createFile active">
+                    <div class="fileIcon">
+                      <ion-icon name="document-outline" id="newFile"></ion-icon>
+                      <ion-icon name="add-outline" id="addNew"></ion-icon>
+                    </div>
+                    <form class="fileName" ng-submit="createFile($event)">
+                      <input type="text" name="fileName" id="newFileName" ng-blur="removeAddFile()">
+                      <input type="submit">
+                    </form>
+                  </div>
+                  <div class="fileItem createFolder active">
+                    <div class="fileIcon">
+                      <ion-icon name="folder-outline" id="newFile"></ion-icon>
+                      <ion-icon name="add-outline" id="addNew"></ion-icon>
+                    </div>
+                    <form class="fileName" ng-submit="createNewFolder($event)">
+                      <input type="text" name="folderName" id="newFolder" ng-blur="removeAddFolder()">
+                      <input type="submit">
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="subcontent accountManager">
+          <div class="top">
+            <h1>Accounts manager</h1>
+          </div>
+          <div class="bottom">
+            <div class="content">
+              <div class="notSelected acInfo active">
+                <div class="content">
+                  <h1 class="lightTitle">Seleziona un account</h1>
+                </div>
+              </div>
+              <div class="selected acInfo">
+                <div class="content">
+                  <div class="img">
+                    <img src="" alt="">
+                  </div>
+                  <div class="info">
+                    <div class="contentInside">
+                      <div class="inputs">
+                        <div class="left">
+                          <div class="input"></div>
+                          <div class="input"></div>
+                          <div class="input"></div>
+                        </div>
+                        <div class="right">
+                          <div class="input"></div>
+                          <div class="input"></div>
+                          <div class="input"></div>
+                        </div>
+                      </div>
+                      <div class="saveChanges">
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="addAccountForm acInfo">
+                <div class="content">
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="blur">
+
+      </div>
+
+
+      <div class="folderOption">
+        <div class="folderContainer" ng-show="show">
+          <div class="folderItem newFile" ng-click="addCreateFile()">
+            <div class="icon">
+              <ion-icon name="document-outline" id="file"></ion-icon>
+              <ion-icon name="add-outline" id="add"></ion-icon>
+            </div>
+            <div class="text">
+              <h4>Nuovo file</h4>
+            </div>
+          </div>
+          <div class="folderItem newFolder" ng-click="addCreateFolder()">
+            <div class="icon">
+              <ion-icon name="folder-outline" id="file"></ion-icon>
+              <ion-icon name="add-outline" id="add"></ion-icon>
+            </div>
+            <div class="text">
+              <h4>Nuova cartella</h4>
+            </div>
+          </div>
+        </div>
+        <div class="fileContainer" ng-show="!show">
+
+        </div>
+
+      </div>
+
+      <input type="text" id="menuFolder" style="width: 0; height: 0">
+  </section>
+
+
+  <script type="module" src="../script/home/script.js"></script>
+  <script type="module" src="../script/home/angular/app.js"></script>
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,160 @@
+.loadingContainer {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  z-index: 1000;
+  transition: 0.3s ease-out;
+}
+
+.loadingContainer.notActive {
+  opacity: 0;
+  z-index: -100;
+}
+
+.loading {
+  width: 120px;
+  height: 120px;
+  position: relative;
+  margin: 150px auto;
+  background: #fff;
+  animation: spin 1.5s linear infinite;
+  animation-direction: reverse;
+}
+
+.shape {
+  display: block;
+  position: absolute;
+  height: 20px;
+  width: 40px;
+  background: #fff;
+  mix-blend-mode: exclusion;
+  -webkit-backface-visibility: visible;
+  backface-visibility: visible;
+}
+
+.shape.shape-1 {
+  animation: spin1 1.5s ease-in-out infinite;
+}
+
+.shape.shape-2 {
+  animation: spin2 1.5s ease-in-out infinite;
+}
+
+.shape.shape-3 {
+  animation: spin3 1.5s ease-in-out infinite;
+}
+
+.shape.shape-4 {
+  animation: spin4 1.5s ease-in-out infinite;
+}
+
+.shape.shape-1.animate {
+  animation: spin1End 0.3s ease-in-out forwards;
+}
+
+.shape.shape-2.animate {
+  animation: spin2End 0.3s ease-in-out forwards;
+}
+
+.shape.shape-3.animate {
+  animation: spin3End 0.3s ease-in-out forwards;
+}
+
+.shape.shape-4.animate {
+  animation: spin4End 0.3s ease-in-out forwards;
+}
+
+.shape.shape-1 {
+  top: 20px;
+  left: 40px;
+}
+
+.shape.shape-2 {
+  right: 20px;
+  top: 40px;
+  width: 20px;
+  height: 40px;
+}
+
+.shape.shape-3 {
+  bottom: 20px;
+  left: 40px;
+}
+
+.shape.shape-4 {
+  left: 20px;
+  top: 40px;
+  width: 20px;
+  height: 40px;
+}
+
+@keyframes spin {
+  100% {
+    transform: rotate(90deg);
+  }
+}
+
+@keyframes spin1 {
+  25% {
+    transform: rotate(90deg) translate(30px, -10px) scaleX(1);
+  } 100% {
+    transform: rotate(90deg) translate(30px, -10px) scaleX(2);
+  }
+}
+
+@keyframes spin2 {
+  15% {
+    transform: rotate(0deg) translate(0px) scaleY(1);
+  } 50% {
+    transform: rotate(90deg) translate(10px, 30px) scaleY(1);
+  } 100% {
+    transform: rotate(90deg) translate(10px, 30px) scaleY(2);
+  }
+}
+
+@keyframes spin3 {
+  40% {
+    transform: rotate(0deg) translate(0px) scaleX(1);
+  } 75% {
+    transform: rotate(90deg) translate(-30px, 10px) scaleX(1);
+  } 100% {
+    transform: rotate(90deg) translate(-30px, 10px) scaleX(2);
+  }
+}
+
+@keyframes spin4 {
+  65% {
+    transform: rotate(0deg) translate(0px) scaleY(1);
+  } 100% {
+    transform: rotate(90deg) translate(-10px, -30px) scaleY(2);
+  }
+}
+
+
+@keyframes spin4End {
+  100% {
+    transform: rotate(0) translateX(-10px) scaleY(2);
+  }
+}
+
+@keyframes spin2End {
+  100% {
+    transform: rotate(0) translateX(10px) scaleY(2);
+  }
+}
+
+@keyframes spin1End {
+  100% {
+    transform: rotate(0) translateY(20px) scale(1);
+  }
+}
+
+@keyframes spin3End {
+  100% {
+    opacity: 0;
+  }
+}
